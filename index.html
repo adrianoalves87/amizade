@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carta Futurista</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,#1bffff33,transparent 40%),
+    radial-gradient(circle at bottom,#8a2be233,transparent 40%),
+    #050510;
+
+}
+
+
+
+/* Partículas de fundo */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300%;
+
+    height:300%;
+
+    background-image:
+    radial-gradient(#00ffff 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    animation:mover 20s linear infinite;
+
+    opacity:.25;
+
+}
+
+
+@keyframes mover{
+
+    from{
+
+        transform:translate(0,0);
+
+    }
+
+    to{
+
+        transform:translate(-100px,-100px);
+
+    }
+
+}
+
+
+
+/* Caixa futurista */
+
+
+.container{
+
+    position:relative;
+
+    width:90%;
+
+    max-width:450px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+
+    background:
+
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:blur(15px);
+
+
+    border:1px solid rgba(255,255,255,.2);
+
+
+    box-shadow:
+
+    0 0 30px #00ffff55,
+
+    inset 0 0 20px #ffffff11;
+
+
+    color:white;
+
+}
+
+
+
+/* Texto */
+
+
+h1{
+
+    font-size:28px;
+
+    color:#00ffff;
+
+    text-shadow:0 0 15px #00ffff;
+
+    margin-bottom:20px;
+
+}
+
+
+
+h2{
+
+    color:#00ffff;
+
+    text-shadow:0 0 15px #00ffff;
+
+}
+
+
+
+p{
+
+    color:#eee;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+}
+
+
+
+/* Botões */
+
+
+.area-botoes{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+}
+
+
+
+button{
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    border:none;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+#sim{
+
+    background:#00ff99;
+
+    color:#001;
+
+    box-shadow:0 0 20px #00ff99;
+
+}
+
+
+
+#sim:hover{
+
+    transform:scale(1.15);
+
+}
+
+
+
+#nao{
+
+    background:#ff0055;
+
+    color:white;
+
+    box-shadow:0 0 20px #ff0055;
+
+}
+
+
+
+/* Carta */
+
+
+.carta{
+
+    display:none;
+
+    animation:abrir 1s;
+
+}
+
+
+
+.mensagem{
+
+    margin-top:20px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(0,0,0,.3);
+
+    border:1px solid #00ffff55;
+
+    box-shadow:0 0 20px #00ffff44;
+
+}
+
+
+
+@keyframes abrir{
+
+
+from{
+
+    opacity:0;
+
+    transform:scale(.3) rotateY(90deg);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:scale(1) rotateY(0);
+
+}
+
+
+}
+
+
+
+/* Celular */
+
+
+@media(max-width:500px){
+
+
+h1{
+
+font-size:23px;
+
+}
+
+
+p{
+
+font-size:16px;
+
+}
+
+
+button{
+
+padding:13px 25px;
+
+}
+
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="container" id="pergunta">
+
+
+<h1>💌 CONEXÃO DE AMIZADE</h1>
+
+
+<p>
+
+Uma nova conexão está esperando...
+
+<br><br>
+
+Você aceita uma amizade sincera,
+
+respeitosa e verdadeira?
+
+</p>
+
+
+
+<div class="area-botoes">
+
+
+<button id="sim">
+
+ACEITAR
+
+</button>
+
+
+<button id="nao">
+
+RECUSAR
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="container carta" id="carta">
+
+
+<h2>✨ MENSAGEM DESBLOQUEADA ✨</h2>
+
+
+<div class="mensagem">
+
+
+<p>
+
+Olá, aninha! 🚀
+
+<br><br>
+
+Essa mensagem representa uma amizade
+
+baseada em respeito, confiança e bons momentos.
+
+<br><br>
+
+Que nossa conexão continue forte,
+
+com muitas histórias e lembranças boas.
+
+<br><br>
+
+Obrigado por aceitar essa amizade. 💙
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const sim = document.getElementById("sim");
+
+const nao = document.getElementById("nao");
+
+const pergunta = document.getElementById("pergunta");
+
+const carta = document.getElementById("carta");
+
+
+
+
+// botão NÃO fugindo
+
+
+function fugir(){
+
+
+let largura = window.innerWidth - nao.offsetWidth;
+
+let altura = window.innerHeight - nao.offsetHeight;
+
+
+
+let x = Math.random()*largura;
+
+let y = Math.random()*altura;
+
+
+
+nao.style.position="fixed";
+
+nao.style.left=x+"px";
+
+nao.style.top=y+"px";
+
+
+}
+
+
+
+nao.addEventListener("mouseenter",fugir);
+
+
+nao.addEventListener("touchstart",function(e){
+
+e.preventDefault();
+
+fugir();
+
+});
+
+
+
+
+// abrir carta
+
+
+sim.addEventListener("click",()=>{
+
+
+pergunta.style.display="none";
+
+
+carta.style.display="block";
+
+
+});
+
+
+</script>
+
+
+
+</body>
+
+</html>
